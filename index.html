@@ -10,35 +10,42 @@
 </head>
 
 <body>
-
     <section id='start-screen'>
         <h1>Coding Terms Quiz</h1>
         <h2>Do you have what it takes to answer 4 easy questions about coding terms?
-            <br><br>Here are the rules:</h2>
-            
-            <ul>
-                <li> You will have 1 minute to complete the quiz.</li>
-                <li>Every wrong answer will deduct 10 seconds from the clock.</li>
-                <li>Every correct answer will add 10 seconds to the clock.</li>
-                <li>Click the button below to begin.</li>
-            </ul>
-            
-            <button class='startButton' id="start-button">Let's Do This</button>
-            <button class="startButton" id="hs-button">High Scores</button>
-                        
-        </section>
-    
-    <section id="questions" style="display: none;">
-        <div id='timer' class='timer'>Time Remaining:</div>
-        <button id = 'btn1'>Question 1</button>
-        <button id = 'btn2'>Question 2</button>
-        <button id = 'btn3'>Question 3</button>
-        <button id = 'btn4'>Question 4</button>
+            <br><br>Here are the rules:
+        </h2>
 
+        <ul>
+            <li>You will have 1 minute to complete the quiz.</li>
+            <li>Every wrong answer will deduct 10 seconds from the clock.</li>
+            <li>Every correct answer will add 10 seconds to the clock.</li>
+            <li>Click the button below to begin.</li>
+        </ul>
     </section>
 
+    <div class='container'>
+        <div id='question-container' class='hide'>
+            <div id='question'>Question</div>
+            <div id='answer-buttons'>
+                <button class='btn'>Answer 1</button>
+                <button class='btn'>Answer 2</button>
+                <button class='btn'>Answer 3</button>
+                <button class='btn'>Answer 4</button>
+            </div>
+        </div>
+    </div>
+
+    <div class='controls'>
+        <button id='start-btn' class='start-btn btn'>Let's Do This</button>
+        <button id='hs-btn' class='next-btn btn'>High Scores</button>
+    </div>
+
+    <div id='timer' class='hide'>Time Remaining:</div>
+    
     <script src="/js/script.js"></script>
 
 </body>
 
 </html>
+

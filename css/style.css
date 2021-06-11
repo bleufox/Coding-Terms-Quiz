@@ -33,7 +33,7 @@ p   {
     line-height: 15pt;
 }
 
-button {
+.btn {
     background-color: #ac8220;
     color: #e0dacc;
     padding: 10px;
@@ -63,4 +63,8 @@ ul  {
 .timer  {
     color: #e0dacc;
     font-weight: 1000;
+}
+
+.hide {
+    display:none;
 }
