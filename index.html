@@ -10,6 +10,9 @@
 </head>
 
 <body>
+
+    <div id='timer' class='tmr hide'></div>
+
     <section id='start-screen'>
         <h1>Coding Terms Quiz</h1>
         <h2>Do you have what it takes to answer 4 easy questions about coding terms?
@@ -26,7 +29,7 @@
 
     <div class='container'>
         <div id='question-container' class='hide'>
-            <div id='question'>Question</div>
+            <div id='questions'></div>
             <div id='answer-buttons'>
                 <button class='btn'>Answer 1</button>
                 <button class='btn'>Answer 2</button>
@@ -41,7 +44,9 @@
         <button id='hs-btn' class='next-btn btn'>High Scores</button>
     </div>
 
-    <div id='timer' class='hide'>Time Remaining:</div>
+    <section id='game-over' class="hide">
+        <h1>Game Over!</h1>
+    </section>
     
     <script src="/js/script.js"></script>
 

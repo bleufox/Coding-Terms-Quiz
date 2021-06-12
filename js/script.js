@@ -1,42 +1,63 @@
+//Create a quiz with four mutiple choice questions, a timer, and a high score log
+
+//Create timer div that deducts 10 when answer is incorrect, and adds 10 when the answer is correct
+
+//Display the first question upon start button click
+
+//Display the answers in buttons upon click
+
 const startButton = document.getElementById('start-btn');
 const questionContainerEl = document.getElementById('question-container');
 const startScreenEl = document.getElementById('start-screen');
+const gameOver = document.getElementById('game-over')
 const hsButton = document.getElementById('hs-btn');
 const timerEl = document.getElementById('timer');
+let timeLeft = 5;
 let shuffledQuestions, currentQuestionIndex
-const questionsEl = document.getElementById('question');
+const questionsEl = document.getElementById('questions');
 const answerBtnsEl = document.getElementById('answer-buttons')
 startButton.addEventListener('click', startQuiz);
 
 const questions = [{
-
     question: "What does the acronym HTML stand for?",
     answers: [
-        { text: "Hey Too Much Layout", correct: false },
-        { text: "Hypertext Markup Language", correct: true },
-        { text: "Hey There Mother Lord", correct: false },
-        { text: "Hang (on), There's More (to) Learn", correct: false }
-    ]
+        "Hey Too Much Layout",
+        "Hypertext Markup Language",
+        "Hey There Mother Lord",
+        "Hang (on), There's More (to) Learn",
+    ],
+    correctAns: "Hypertext Markup Language",
 },
-
 {
     question: "What is Javascript?",
     answers: [
-        { text: "A script for a movie about a coffee shop", correct: false },
-        { text: "A type of food", correct: false },
-        { text: "A brand name", correct: false },
-        { text: "An object-oriented computer programming language", correct: true },
-    ]
+        "A script for a movie about a coffee shop",
+        "A type of food",
+        "A brand name",
+        "An object-oriented computer programming language",
+    ],
+    correctAns: "An object-oriented computer programming language",
 },
 {
     question: "'Section', 'Article', 'Nav', and 'Footer' are examples of:",
     answers: [
-        { text: "HTML Elements", correct: true },
-        { text: "Variables", correct: false },
-        { text: "Properties", correct: false },
-        { text: "Absolute Nonsense", correct: false }
+        "HTML Elements",
+        "Variables",
+        "Properties",
+        "Absolute Nonsense",
     ]
-}],
+},];
+
+const myfunc = () => setInterval(function () {
+    timeLeft-= 1;
+    timerEl.textContent = "Time Remaining: " + timeLeft;
+    if (timeLeft <= 0) {
+        clearInterval(myfunc);
+        document.getElementById('timer').innerHTML = ""
+    }
+    timeIsUp();
+    
+}, 1000);
 
 function startQuiz() {
     console.log("Started")
@@ -44,6 +65,7 @@ function startQuiz() {
     hsButton.classList.add('hide')
     startScreenEl.classList.add('hide')
     timerEl.classList.remove('hide')
+    myfunc()
     questionContainerEl.classList.remove('hide')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
@@ -51,16 +73,25 @@ function startQuiz() {
 }
 
 function setNextQuestion() {
-    showQuestion(shuffledQuestions[currentQuestionIndex])
-}
-
-function showQuestion(questions) {
-    questionContainerEl.innerText = question.question
-}
-
-function selectAnswer() {
+    questionsEl.textContent = questions[0].question
 
 }
+
+function showQuestion() {
+        gameOver.classList.remove('hide')
+        questionContainerEl.classList.add('hide')
+}
+
+function timeIsUp () {
+    if (timeLeft == 0) {
+        gameOver.classList.remove('hide')
+        questionContainerEl.classList.add('hide')
+    }
+}
+
+// function selectAnswer() {
+//     if
+// }
 
 
 // to render high scores
@@ -68,11 +99,4 @@ function selectAnswer() {
 // push the new high score into that array
 // set the new array into local storage
 
-// function countDown() {
-//     timeLeft--;
-//     document.getElementById("clock").textContent = timeLeft;
 
-//     if (timeLeft <= 0) {
-
-//     }
-// }
